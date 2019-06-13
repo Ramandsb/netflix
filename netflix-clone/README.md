@@ -5,6 +5,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
+### `npm i -s react-router-dom` 
+### `npm install @material-ui/core` 
+### `npm i styled-components` 
+### `npm i -s axios`
+
+
+To make height 100% simply put  height:93vh
+
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
