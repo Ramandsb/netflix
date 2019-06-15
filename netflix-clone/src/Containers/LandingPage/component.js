@@ -13,6 +13,7 @@ import tv3 from '../../Assets/images/tv3.png'
 import colors from '../../Assets/colors'
 import sizes from '../../Assets/sizes'
 import Media from 'react-media';
+import { Link } from 'react-router-dom'
 
 const Container = styled(Grid)`
    background-color:black;
@@ -235,8 +236,8 @@ class LandingPage extends Component {
                         <Topbar container xs={12}>
                             <LogoImage src={logo} />
                             <SigninButton>
-                                Sign In
-                        </SigninButton>
+                                <Link to="/signin" style={{color:'white',textDecoration:"none"}}>Sign In</Link>
+                            </SigninButton>
                         </Topbar>
                         <ContentContainer container xs={12} justify='center' alignContent='center'>
                             <SeeWhatText>
