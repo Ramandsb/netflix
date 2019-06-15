@@ -11,6 +11,9 @@ import tv2 from '../../Assets/images/tv2.png'
 import tv3 from '../../Assets/images/tv3.png'
 
 import colors from '../../Assets/colors'
+import sizes from '../../Assets/sizes'
+import Media from 'react-media';
+
 const Container = styled(Grid)`
    background-color:black;
 `
@@ -29,7 +32,16 @@ const LogoImage = styled.img`
     height:100px
     position:absolute
     left:50%
-    transform:translate(-50%)
+    transform:translate(-50%);
+    @media(max-width:${sizes.laptop}){
+    left:0
+    transform:translate(0);
+    }
+    @media(max-width:${sizes.tab}){
+        left:50%
+    transform:translate(-50%);
+        }
+    
     
 `
 const BackgroundImage = styled.img`
@@ -74,6 +86,13 @@ const WatchFreeButton = styled.button`
     &:hover {
         opacity:0.8
       }
+      @media(max-width:${sizes.laptop}){
+        width:50% 
+    }
+    @media(max-width:${sizes.tab}){
+        width:65% 
+    }
+    
 `
 const WatchFreeButtonSmall = styled.button`
     background-color:green;
@@ -95,8 +114,15 @@ const WatchFreeButtonSmall = styled.button`
 `
 const ContentContainer = styled(Grid)`
     width:100%; 
-    margin-top:10%;
-    flex-direction:column
+    margin-top:15%;
+    flex-direction:column;
+    @media(max-width:${sizes.laptop}){
+        margin-top:25%;
+    }
+    @media(max-width:${sizes.tab}){
+        margin-top:45%;
+    }
+    
 `
 const SeeWhatText = styled.h1`
     color:white;
@@ -104,6 +130,15 @@ const SeeWhatText = styled.h1`
     font-weight:700
     line-height:1;
     text-align:center
+    @media(max-width:${sizes.laptop}){
+        font-size:6.8rem;
+    }
+    @media(max-width:${sizes.tab}){
+        font-size:4.8rem;
+    }
+    @media(max-width:${sizes.phone}){
+        font-size:2.8rem;
+    }
 `
 const SubHeading = styled.h3`
     color:white;
@@ -111,6 +146,12 @@ const SubHeading = styled.h3`
     font-weight:500
     line-height:1;
     text-align:center
+    @media(max-width:${sizes.laptop}){
+        font-size:2rem;
+    }
+    @media(max-width:${sizes.tab}){
+        font-size:2rem;
+    }
 `
 
 const NoCommitText = styled.h4`
@@ -172,7 +213,7 @@ padding:0.8rem 1.2rem
 text-align:center
 `
 const Tr = styled.tr`
-background-color:${props=> props.even ? "#222" : ""}
+background-color:${props => props.even ? "#222" : ""}
 `
 
 
@@ -228,22 +269,32 @@ class LandingPage extends Component {
                             selected={this.state.selectedTab === 0}
                             onClick={() => this.setState({ selectedTab: 0 })}>
                             <i class="fas fa-door-open fa-3x"></i>
-                            <IconsText>
-                                No commitments
-                                Cancel online at anytime
-                            </IconsText>
+                            <Media query="(max-width: 670px)">
+                            {matches => !matches ? <IconsText>
+                                    No commitments
+                                    Cancel online at anytime
+                            </IconsText>:<IconsText>
+                                    Cancel
+                            </IconsText>}
+                            </Media>
                         </TabsItemContainer>
                         <TabsItemContainer
                             selected={this.state.selectedTab === 1}
                             container xs={3} justify='center' alignItems='center' direction='column' onClick={() => this.setState({ selectedTab: 1 })}>
                             <i class="fas fa-tablet-alt fa-3x"></i>
-                            <IconsText>Watch anywhere</IconsText>
+                            <Media query="(max-width: 670px)">
+                            {matches => !matches ?
+                            <IconsText>Watch anywhere</IconsText>: <IconsText>Devices</IconsText>}
+                            </Media>
                         </TabsItemContainer>
                         <TabsItemContainer
                             selected={this.state.selectedTab === 2}
                             container xs={3} justify='center' alignItems='center' direction='column' onClick={() => this.setState({ selectedTab: 2 })}>
                             <i class="fas fa-tags fa-3x"></i>
-                            <IconsText>Pick your price</IconsText>
+                            <Media query="(max-width: 670px)">
+                            {matches => !matches ?
+                            <IconsText>Pick your price</IconsText>:<IconsText>Price</IconsText>}
+                            </Media>
                         </TabsItemContainer>
                     </Grid>
                 </Grid>
@@ -373,6 +424,9 @@ class LandingPage extends Component {
                             </Grid>
                         </Grid>
                     </Grid> : null}
+
+                <Grid container xs={12} style={{ height: 200 }}>
+                </Grid>
 
             </Container>
         );
