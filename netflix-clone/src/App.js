@@ -12,9 +12,8 @@ import SignIn from './Containers/SignIn'
 function App() {
   return (
     <Router>
-            <Route exact path="/signin" component={SignIn}/>
-
       <Route exact path="/" component={LandingPage}/>
+      <Route exact path="/signin" component={SignIn}/>
     </Router>
   );
 }
