@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    padding: 0 55px;
+  }
+  
+  .item {
+    background: transparent;
+    /* flex: 0 0 25.7%; */
+    /* text-align: center;
+    margin: 0 2px;
+    height: 21.5rem; */
+    cursor: pointer;
+         transition: all 450ms; 
+         transform: center left; 
+          padding-top: 3.5rem;
+         /* padding-bottom: 4rem;  */
+         height: 16.5rem;
+         min-height: 0;
+         margin: 1px
+    /* transition: transform 300ms ease 100ms; */
+  }
+  .container:hover .item {
+    transform: translateX(-25%);
+ }
+ .item:hover ~ .item {
+  transform: translateX(25%);
+}
+.item:hover {
+  transform: scale(1.5) !important;
+}
