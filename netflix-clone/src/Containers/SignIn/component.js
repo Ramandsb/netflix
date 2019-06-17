@@ -15,6 +15,7 @@ import fontSize from '../../Assets/font'
 import colors from '../../Assets/colors'
 import sizes from '../../Assets/sizes'
 import Media from 'react-media';
+import { Link } from 'react-router-dom'
 
 
 
@@ -170,8 +171,8 @@ class SignIn extends Component {
 
 
 
-                                    <WatchFreeButtonSmall onClick={() => alert(this.state.name)}>
-                                        Sign In
+                                    <WatchFreeButtonSmall>
+                                        <Link to="/main" style={{color:'white',textDecoration:"none"}}>Sign In</Link>
                                     </WatchFreeButtonSmall>
                                     <Grid container xs={12} style={{ marginTop: 10 }} justify='space-between'>
                                         <p style={{ color: '#b3b3b3', fontWeight: '500' }}>Remember me</p>
